@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+
+git config --global user.email "contato.allanlima123@gmail.com"
+git config --global user.name "Allan" 
