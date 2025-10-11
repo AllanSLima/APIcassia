@@ -1,14 +1,33 @@
 package com.crud.CRUD.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "produto")
 public class Produto {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+    @Column(name = "nome", nullable = false)
     private String nome;
+    
+    @Column(name = "preco", nullable = false)
     private double preco;
 
-    // Construtor vazio (necessÃ¡rio para o Spring Boot)
+    // Construtor vazio (necessário para o JPA)
     public Produto() {
     }
 
+    // Construtor com parâmetros
+    public Produto(Long id, String nome, double preco) {
+        this.id = id;
+        this.nome = nome;
+        this.preco = preco;
+    }
+
+    // Getters e Setters (MANTENHA OS QUE JÁ EXISTIAM)
     public Long getId() {
         return id;
     }
@@ -32,11 +51,4 @@ public class Produto {
     public void setPreco(double preco) {
         this.preco = preco;
     }
-
-    public Produto(Long id, String nome, double preco) {
-        this.id = id;
-        this.nome = nome;
-        this.preco = preco;
-    }
-
 }
